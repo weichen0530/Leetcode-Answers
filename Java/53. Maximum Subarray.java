@@ -1,4 +1,5 @@
 public class Solution {
+	// educative
     public int MaxSubArray(int[] nums) {
         if(nums == null || nums.Length == 0)
             return 0;
@@ -11,5 +12,17 @@ public class Solution {
         }
         res = temp.Max();
         return res;
+    }
+	
+	//leetcode
+	public int maxSubArray(int[] nums) {
+        if(nums == null || nums.length == 0) return -1;
+        if(nums.length == 1) return nums[0];
+        int maxToCurrPos = nums[0], maxSoFar = nums[0];
+        for(int i = 1; i < nums.length; i++){
+            maxToCurrPos = Math.max(nums[i], maxToCurrPos + nums[i]);
+            maxSoFar = Math.max(maxSoFar, maxToCurrPos);
+        }
+        return maxSoFar;
     }
 }
